@@ -1,5 +1,6 @@
 use enigo::{Direction::*, Enigo, Key, Keyboard, Settings};
 use std::env;
+use enigo::Key::Control;
 
 fn main() {
     let args: Vec<String> = env::args().collect(); // collect args from SD
@@ -34,6 +35,7 @@ fn match_command(command: &str) -> &'static str {
         "grenade_launcher" => "sawas",
         "laser_cannon" => "saswa",
         "incendiary_mines" => "saas",
+        "gaz_mines" => "saaw",
         "guard_dog_rover" => "swawdd",
         "ballistic_shield_backpack" => "sawwd",
         "arc_thrower" => "sdwas",
@@ -42,6 +44,7 @@ fn match_command(command: &str) -> &'static str {
         "orbital_gas_strike" => "ddsd",
         "orbital_ems_strike" => "ddas",
         "orbital_smoke_strike" => "ddsw",
+        "orbital_napalm_barrage" => "ddsadw",
         "hmg_emplacement" => "swadda",
         "shield_generation_relay" => "swasdd",
         "tesla_tower" => "swdwad",
@@ -69,18 +72,28 @@ fn match_command(command: &str) -> &'static str {
         "autocannon" => "saswwd",
         "railgun" => "sdaswad",
         "spear" => "sswss",
+        "wasp" => "sswsd",
+        "commando" => "sawsd",
+        "airburst" => "swwad",
         "sos_beacon" => "wsaw",
         "resupply" => "sswd",
         "eagle_rearm" => "wwawd",
         "hellbomb" => "swaswdsw",
         "prospecting_drill" => "ssadss",
         "super_earth_flag" => "swsw",
+        "patriot_exosuit" => "asdwass",
+        "seaf_artillery" => "dwws",
+        "upload_data" => "adwww",
+        "seismic_probe" => "wwaass",
+        "orbital_illumination_flare" => "ddaa",
         _ => "", //returns blank if not so no keys will be pressed
     }
 }
 fn run_macro(command: &str) {
     let mut enigo = Enigo::new(&Settings::default()).unwrap();
     //Input key gets pressed down
+
+    enigo.key(Control, Press).unwrap();
 
     for c in command.chars() {
         let key = parse_key(c);
