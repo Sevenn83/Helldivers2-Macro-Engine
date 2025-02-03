@@ -1,6 +1,7 @@
 use enigo::{Direction::*, Enigo, Key, Keyboard, Settings};
 use std::env;
-use enigo::Key::Control;
+use std::thread::sleep;
+use std::time::Duration;
 
 fn main() {
     let args: Vec<String> = env::args().collect(); // collect args from SD
@@ -90,14 +91,19 @@ fn match_command(command: &str) -> &'static str {
     }
 }
 fn run_macro(command: &str) {
+    const DELAY: u64 = 50;
     let mut enigo = Enigo::new(&Settings::default()).unwrap();
     //Input key gets pressed down
 
-    enigo.key(Control, Press).unwrap();
+    enigo.key(Key::Control, Press).unwrap();
+    sleep(Duration::from_millis(DELAY));
 
     for c in command.chars() {
         let key = parse_key(c);
-        enigo.key(key, Click).unwrap()
+        enigo.key(key, Press).unwrap();
+        sleep(Duration::from_millis(DELAY));
+        enigo.key(key, Release).unwrap();
+        sleep(Duration::from_millis(DELAY));
     }
 }
 
