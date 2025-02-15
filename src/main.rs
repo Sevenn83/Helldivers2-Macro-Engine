@@ -31,15 +31,16 @@ fn match_command(command: &str) -> &'static str {
         "autocannon_sentry" => "swdwaw",
         "rocket_sentry" => "swdda",
         "ems_mortar_sentry" => "swdsd",
+        "flamme_sentry" => "swdsww",
         "anti-personnel_minefield" => "sawd",
         "supply_pack" => "saswws",
         "grenade_launcher" => "sawas",
         "laser_cannon" => "saswa",
         "incendiary_mines" => "saas",
-        "gaz_mines" => "saaw",
+        "gaz_mines" => "saad",
         "guard_dog_rover" => "swawdd",
         "ballistic_shield_backpack" => "sawwd",
-        "arc_thrower" => "sdwas",
+        "arc_thrower" => "sdswaa",
         "shield_generator_pack" => "swadad",
         "orbital_precision_strike" => "ddw",
         "orbital_gas_strike" => "ddsd",
@@ -87,6 +88,8 @@ fn match_command(command: &str) -> &'static str {
         "upload_data" => "adwww",
         "seismic_probe" => "wwaass",
         "orbital_illumination_flare" => "ddaa",
+        "bombpack" => "sdwww",
+        "antichar" => "swaddd",
         _ => "", //returns blank if not so no keys will be pressed
     }
 }
