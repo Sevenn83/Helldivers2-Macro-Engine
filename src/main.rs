@@ -73,7 +73,7 @@ fn match_command(command: &str) -> &'static str {
         "recoiled_rifle" => "sadda",
         "flamethrower" => "sawsw",
         "autocannon" => "saswwd",
-        "railgun" => "sdaswad",
+        "railgun" => "sdswad",
         "spear" => "sswss",
         "wasp" => "sswsd",
         "commando" => "sawsd",
